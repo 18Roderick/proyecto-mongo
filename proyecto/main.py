@@ -10,8 +10,11 @@ collection = {
 }
 
 index = 0
+start = 0
+size = 1
 
-def links(start=0, size=1, index):
+
+def links(start=0, size=1, index=0):
     urls = [
         "https://www.ebi.ac.uk/proteins/api/proteins?offset=" +
         str(start)+"&size="+str(size)+"&organism=Nicotiana%20tabacum",
@@ -25,20 +28,26 @@ def links(start=0, size=1, index):
     return urls[index]
 
 
-url = links(10, 0)
-
-
+def getting_data(data):
+    for index in data:
+        for clave in index:
+        	print(clave)
 
 
 try:
-	while index < len(urls):
-		r = requests.get(url, headers={"Accept": "application/json"})
+    while index < 1:
+        url = links(start, size, 0)
+        print(url)
+        r = requests.get(url, headers={"Accept": "application/json"})
 
-		if not r.ok:
-		    r.raise_for_status()
-		    sys.exit()
-		responseBody = r.json()
-		
+        if not r.ok:
+            r.raise_for_status()
+            sys.exit()
+        responseBody = r.json()
+        #print(responseBody)
+        getting_data(responseBody)
+        index += 1
+
 
 except:
-	'Erro al tratar de conseguir los datos'
+    'Erro al tratar de conseguir los datos'
