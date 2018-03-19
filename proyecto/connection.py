@@ -25,11 +25,14 @@ class Mongo:
 
     def insertone(self, collection, datos):
         try:
-        	self.collection = self.db[collection]
-        	id = self.collection.insert_one(datos).inserted_id
-        	print('datos insertados con exito '+id)
+            self.open_connection()
+            self.collection = self.db[collection]
+            id = self.collection.insert_one(datos).inserted_id
+            print('datos insertados con exito '+ id)
         except:
-        	print('Error al insertar en '+ collection)
+            print('Error al insertar en ' + collection)
+        self.close_connection()
+
 
 """
 DB = Mongo('GenomicDB')
