@@ -1,0 +1,344 @@
+{
+  "accession": "A0A0C5B7H6",
+  "id": "A0A0C5B7H6_9SOLA",
+  "proteinExistence": "Predicted",
+  "info": {
+    "type": "TrEMBL",
+    "created": "2015-04-29",
+    "modified": "2016-05-11",
+    "version": 7
+  },
+  "organism": {
+    "taxonomy": 1520274,
+    "names": [
+      {
+        "type": "scientific",
+        "value": "Nicotiana tabacum/Hyoscyamus niger cybrid"
+      }
+    ],
+    "lineage": [
+      "Eukaryota",
+      "Viridiplantae",
+      "Streptophyta",
+      "Embryophyta",
+      "Tracheophyta",
+      "Spermatophyta",
+      "Magnoliophyta",
+      "eudicotyledons",
+      "Gunneridae",
+      "Pentapetalae",
+      "asterids",
+      "lamiids",
+      "Solanales",
+      "Solanaceae",
+      "unclassified Solanaceae"
+    ]
+  },
+  "protein": {
+    "submittedName": [
+      {
+        "fullName": {
+          "value": "Cytochrome c biogenesis FC",
+          "evidences": [
+            {
+              "code": "ECO:0000313",
+              "source": {
+                "name": "EMBL",
+                "id": "AJM70220.1",
+                "url": "http://www.ebi.ac.uk/ena/data/view/AJM70220.1"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "gene": [
+    {
+      "name": {
+        "value": "ccmFc",
+        "evidences": [
+          {
+            "code": "ECO:0000313",
+            "source": {
+              "name": "EMBL",
+              "id": "AJM70220.1",
+              "url": "http://www.ebi.ac.uk/ena/data/view/AJM70220.1"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "features": [
+    {
+      "type": "SIGNAL",
+      "category": "MOLECULE_PROCESSING",
+      "description": "",
+      "begin": "1",
+      "end": "21",
+      "evidences": [
+        {
+          "code": "ECO:0000256",
+          "source": {
+            "name": "SAM",
+            "id": "SignalP",
+            "url": "http://www.uniprot.org/help/sam"
+          }
+        }
+      ]
+    },
+    {
+      "type": "CHAIN",
+      "category": "MOLECULE_PROCESSING",
+      "ftId": "PRO_5002186832",
+      "description": "",
+      "begin": "22",
+      "end": "438",
+      "evidences": [
+        {
+          "code": "ECO:0000256",
+          "source": {
+            "name": "SAM",
+            "id": "SignalP",
+            "url": "http://www.uniprot.org/help/sam"
+          }
+        }
+      ]
+    },
+    {
+      "type": "TRANSMEM",
+      "category": "TOPOLOGY",
+      "description": "Helical",
+      "begin": "407",
+      "end": "427",
+      "evidences": [
+        {
+          "code": "ECO:0000256",
+          "source": {
+            "name": "SAM",
+            "id": "Phobius",
+            "url": "http://www.uniprot.org/help/sam"
+          }
+        }
+      ]
+    },
+    {
+      "type": "DOMAIN",
+      "category": "DOMAINS_AND_SITES",
+      "description": "CcmF_C",
+      "begin": "351",
+      "end": "426",
+      "evidences": [
+        {
+          "code": "ECO:0000259",
+          "source": {
+            "name": "Pfam",
+            "id": "PF16327",
+            "url": "http://pfam.xfam.org/family/PF16327"
+          }
+        }
+      ]
+    }
+  ],
+  "dbReferences": [
+    {
+      "type": "EMBL",
+      "id": "KM207679",
+      "properties": {
+        "molecule type": "Genomic_DNA",
+        "protein sequence ID": "AJM70220.1"
+      }
+    },
+    {
+      "type": "GO",
+      "id": "GO:0016021",
+      "properties": {
+        "term": "C:integral component of membrane",
+        "source": "IEA:UniProtKB-KW"
+      }
+    },
+    {
+      "type": "GO",
+      "id": "GO:0005739",
+      "properties": {
+        "term": "C:mitochondrion",
+        "source": "IEA:UniProtKB-KW"
+      }
+    },
+    {
+      "type": "InterPro",
+      "id": "IPR032523",
+      "properties": {
+        "entry name": "CcmF_C"
+      }
+    },
+    {
+      "type": "Pfam",
+      "id": "PF16327",
+      "properties": {
+        "match status": "1",
+        "entry name": "CcmF_C"
+      }
+    }
+  ],
+  "keywords": [
+    {
+      "value": "Membrane",
+      "evidences": [
+        {
+          "code": "ECO:0000256",
+          "source": {
+            "name": "SAM",
+            "id": "Phobius",
+            "url": "http://www.uniprot.org/help/sam"
+          }
+        }
+      ]
+    },
+    {
+      "value": "Mitochondrion",
+      "evidences": [
+        {
+          "code": "ECO:0000313",
+          "source": {
+            "name": "EMBL",
+            "id": "AJM70220.1",
+            "url": "http://www.ebi.ac.uk/ena/data/view/AJM70220.1"
+          }
+        }
+      ]
+    },
+    {
+      "value": "Signal",
+      "evidences": [
+        {
+          "code": "ECO:0000256",
+          "source": {
+            "name": "SAM",
+            "id": "SignalP",
+            "url": "http://www.uniprot.org/help/sam"
+          }
+        }
+      ]
+    },
+    {
+      "value": "Transmembrane",
+      "evidences": [
+        {
+          "code": "ECO:0000256",
+          "source": {
+            "name": "SAM",
+            "id": "Phobius",
+            "url": "http://www.uniprot.org/help/sam"
+          }
+        }
+      ]
+    },
+    {
+      "value": "Transmembrane helix",
+      "evidences": [
+        {
+          "code": "ECO:0000256",
+          "source": {
+            "name": "SAM",
+            "id": "Phobius",
+            "url": "http://www.uniprot.org/help/sam"
+          }
+        }
+      ]
+    }
+  ],
+  "geneLocations": [
+    {
+      "type": "mitochondrion",
+      "evidences": [
+        {
+          "code": "ECO:0000313",
+          "source": {
+            "name": "EMBL",
+            "id": "AJM70220.1",
+            "url": "http://www.ebi.ac.uk/ena/data/view/AJM70220.1"
+          }
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "citation": {
+        "type": "submission",
+        "publicationDate": "JUL-2014",
+        "authors": [
+          "Sanchez Puerta M.V."
+        ],
+        "publication": {
+          "submissionDatabase": "EMBL/GenBank/DDBJ databases"
+        }
+      },
+      "scope": [
+        "NUCLEOTIDE SEQUENCE"
+      ],
+      "evidences": [
+        {
+          "code": "ECO:0000313",
+          "source": {
+            "name": "EMBL",
+            "id": "AJM70220.1",
+            "url": "http://www.ebi.ac.uk/ena/data/view/AJM70220.1"
+          }
+        }
+      ]
+    },
+    {
+      "citation": {
+        "type": "journal article",
+        "publicationDate": "2015",
+        "title": "Homologous recombination and retention of a single form of most genes shape the highly chimeric mitochondrial genome of a cybrid plant.",
+        "authors": [
+          "Sanchez-Puerta M.V.",
+          "Zubko M.K.",
+          "Palmer J.D."
+        ],
+        "publication": {
+          "journalName": "New Phytol."
+        },
+        "location": {
+          "volume": "206",
+          "firstPage": "381",
+          "lastPage": "396"
+        },
+        "dbReferences": [
+          {
+            "type": "PubMed",
+            "id": "25441621"
+          },
+          {
+            "type": "DOI",
+            "id": "10.1111/nph.13188"
+          }
+        ]
+      },
+      "scope": [
+        "NUCLEOTIDE SEQUENCE"
+      ],
+      "evidences": [
+        {
+          "code": "ECO:0000313",
+          "source": {
+            "name": "EMBL",
+            "id": "AJM70220.1",
+            "url": "http://www.ebi.ac.uk/ena/data/view/AJM70220.1"
+          }
+        }
+      ]
+    }
+  ],
+  "sequence": {
+    "version": 1,
+    "length": 438,
+    "mass": 49999,
+    "modified": "2015-04-29",
+    "sequence": "MVQLHNFFFFITSMVVPRGTAAPVLLKWFVSRDVPTGALFSNGTIIPIPIPSFPLLVYLHSRKFIRSADGAKSGVLVRASRPILLPDIIGRSSSETRARNALFRFVPVLHFLLLESKGDFSYLESFCGVLRLLFFRTFFFLPRDRSAKPERARRRKGQTLRPNGNEQRRNEKMRCLGHPHLERRVEGFGPVAFPVPPSSGGACVEGAPPEIGLEALTLPTSRELMAVGHDYYQKAPMKMNISHGGVCIFMLGVLLSNTKKIQFTQRLPLGSELHMGKERCCLRGLDHLHGPTFHSICGNLMIYKPSLTSDRLMFEHDESLRADLLPIHFPASYENGKLEHFFHRWMKNREHNNFWLTMFPEKRYFRERTSTTEVAIHTNLFTDLYASIGTGSSRTGGWYTTIIKLPFIFFIRIGFMLASLGGSRSLLRQLQKDKLRWN"
+  }
+}
