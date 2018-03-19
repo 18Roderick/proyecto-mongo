@@ -1,1 +1,5 @@
 en esta carpeta ponen sus codigos
+en proyecto la carpeta proyecto esta el codigo principal
+tienen que instalar pymongo
+
+pip install pymongo
