@@ -25,7 +25,7 @@ def links(start=0, size=1):
     return urls
 
 
-url = links(10)
+url = links(0,100)
 r = requests.get(url[0], headers={"Accept": "application/json"})
 
 if not r.ok:
@@ -33,16 +33,22 @@ if not r.ok:
     sys.exit()
 
 responseBody = r.json()
-print(responseBody[0])
+#print(responseBody[0])
 
 for protein in responseBody[0]['protein']:
     if protein == "submittedName":
         print(protein+' nombre de la clave')
         collection['Organismo'] = responseBody[0]['protein'][protein][0]['fullName']['value']
+        collection['Funcion'] = responseBody[0]['protein'][protein][0]['fullName']['evidences'][0]['source']['url']
+        collection['CadenaDNA'] = responseBody[0]["sequence"]["sequence"]
+        connection.insertone('Proteinas', collection)
+        print(collection)
     elif protein == "recommendedName":
-        print(protein+' nombre de la clave')
-        #collection['Organismo'] = responseBody[0]['protein'][protein]['fullName']['value']
-        # collection['Funcion'] =
-        print('funcion de la proteina ')
+    	print(protein+' nombre de la clave')
+    	collection['Organismo'] = responseBody[0]['protein'][protein]['fullName']['value']
+    	collection['Funcion'] = responseBody[0]['comments'][0]['text'][0]["value"]
+    	collection['CadenaDNA'] = responseBody[0]['sequence']['sequence']
+    	connection.insertone('Proteinas', collection)
+    	print(collection)
 
 # "submittedName"
