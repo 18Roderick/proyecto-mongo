@@ -3,7 +3,7 @@ import sys
 from pymongo import MongoClient
 from connection import Mongo
 import json
-connection = Mongo('GenomicDB')
+
 
 collection = {
     'Organismo': '',
@@ -13,7 +13,7 @@ collection = {
 
 index = 0
 start = 0
-size = 2
+size = 4
 i = 0
 
 
@@ -31,9 +31,11 @@ def links(start=0, size=1, index=0):
     return urls[index]
 
 
-def getting_data(data):
-	directorio = []
+def getting_data(data):	
 	for i, index in enumerate(data):
+		directorio = []
+		connection = Mongo('GenomicDB')
+		#connection.open_connection()
 	# Extrae los datos por directorio
 		for clave in index:
         	# filtrando los datos por clave de proteina
@@ -45,20 +47,22 @@ def getting_data(data):
 						collection['Organismo'] = index[clave][protein][0]['fullName']['value']
 						collection['Funcion'] = index[clave][protein][0]['fullName']['evidences'][0]['source']['url']
 						collection['CadenaDNA'] = index["sequence"]["sequence"]
-						connection.insertone('Proteinas', collection)
+						#connection.insertone('Proteinas', collection)
 
 					elif protein == "recommendedName":
 						#print(protein+' nombre de la clave')
 						collection['Organismo'] = index[clave][protein]['fullName']['value']
 						collection['Funcion'] = index['comments'][0]['text'][0]["value"]
 						collection['CadenaDNA'] = index["sequence"]["sequence"]
-						connection.insertone('Proteinas', collection)
+						#connection.insertone('Proteinas', collection)
 
 					#print(collection)
 					directorio.append(collection)
 
 
 		print(i)
+		connection.insertmany('Proteinas', directorio)
+		#connection.close_connection()
 	#print(directorio)
 	
 
@@ -86,3 +90,8 @@ try:
 
 except:
     'Erro al tratar de conseguir los datos'
+
+
+
+
+

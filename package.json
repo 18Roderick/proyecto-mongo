@@ -1,0 +1,29 @@
+{
+  "name": "proteinbot",
+  "version": "0.0.1",
+  "description": "El programa carga una base de datos con los datos del api de prteinas",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/18Roderick/proyecto-mongo.git"
+  },
+  "keywords": [
+    "node",
+    "mongo",
+    "request"
+  ],
+  "author": "Roderick Romero",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/18Roderick/proyecto-mongo/issues"
+  },
+  "homepage": "https://github.com/18Roderick/proyecto-mongo#readme",
+  "dependencies": {
+    "mongodb": "^3.0.4",
+    "request": "^2.85.0"
+  }
+}

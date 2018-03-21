@@ -24,16 +24,16 @@ class Mongo:
         print('coneccion cerrada')
 
     def insertone(self, collection, datos):
-        #try:
-        self.open_connection()
-        self.collection = self.db[collection]
-        self.collection.insert_one(datos)
-        print('datos insertados con exito ')
-        self.close_connection()
-        """except:
+        try:
+	        #self.open_connection()
+	        self.collection = self.db[collection]
+	        self.collection.insert_one(datos)
+	        print('datos insertados con exito ')
+	        #self.close_connection()
+        except:
             print('Error al insertar en ' + collection)
-            self.close_connection()
-        """
+            #self.close_connection()
+        
 
     def insertmany(self, collection, datos):
         try:
