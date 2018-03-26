@@ -4,7 +4,7 @@ const mongoClient = require('mongodb').MongoClient,
 	dbName = 'GenomicDB',
 	collectionName = 'Proteinas';
 const request = require('request');
-var link = "https://www.ebi.ac.uk/proteins/api/proteins?offset=0&size=1&organism=Nicotiana%20tabacum"
+var link = `https://www.ebi.ac.uk/proteins/api/proteins?offset=0&size=5&organism=Nicotiana%20tabacum`
 var options = {
 	url: link,
 	headers: {
@@ -33,7 +33,7 @@ request(options, (error, response, body) => {
 							dataset.Funcion = element[i][key][0]['fullName']['evidences']['source']['url'];
 							
 						} else {
-							console.log('Sumited name ############',data);
+							console.log('Sumited name ############', element[i][key]);
 						}
 					} else if (key === "recommendedName") {
 						//console.log(element[i][key]);
@@ -46,6 +46,6 @@ request(options, (error, response, body) => {
 			}
 		};
 		lista.push(dataset);
-		console.log(dataset)
+		//console.log(dataset)
 	});
 })
