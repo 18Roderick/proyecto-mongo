@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/18Roderick/proyecto-mongo#readme",
   "dependencies": {
-    "mongodb": "^3.0.4",
+    "mongodb": "^3.0.5",
     "request": "^2.85.0"
   }
 }

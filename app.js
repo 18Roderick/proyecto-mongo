@@ -4,7 +4,7 @@ const mongoClient = require('mongodb').MongoClient,
 	dbName = 'GenomicDB',
 	collectionName = 'Proteinas';
 const request = require('request');
-var link = `https://www.ebi.ac.uk/proteins/api/proteins?offset=0&size=5&organism=Nicotiana%20tabacum`
+var link = "https://www.ebi.ac.uk/proteins/api/proteins?offset=0&size=5&organism=Nicotiana%20tabacum"
 var options = {
 	url: link,
 	headers: {
@@ -19,8 +19,9 @@ function gettingData(data) {
 request(options, (error, response, body) => {
 	let data = JSON.parse(body);
 	let lista = []
-	let dataset = {};
+
 	data.forEach(element => {
+		let dataset = {};
 		for (const i in element) {
 			//console.log(element[i])
 			if (i === 'protein') {
@@ -28,12 +29,13 @@ request(options, (error, response, body) => {
 					if (key === "submittedName") {
 						dataset.CadenaDNA = element['sequence']['sequence'];
 						//console.log(element[i][key]);
-						if (typeof (element[i][key]) == 'array') {
+						if (typeof(element[i][key]) == 'array') {
 							dataset.Organismo = element[i][key][0]['fullName']['value'];
 							dataset.Funcion = element[i][key][0]['fullName']['evidences']['source']['url'];
-							
+
 						} else {
 							console.log('Sumited name ############', element[i][key]);
+							console.log(element[i][key][0]['fullName']['evidences']);
 						}
 					} else if (key === "recommendedName") {
 						//console.log(element[i][key]);
@@ -47,5 +49,6 @@ request(options, (error, response, body) => {
 		};
 		lista.push(dataset);
 		//console.log(dataset)
+
 	});
 })
