@@ -6,14 +6,11 @@ const
 	dbName = 'GenomicDB',
 	collectionName = 'Proteinas';
 
-let
-	start = 0,
-	size = 100;
 
 function dbConnection() {
 	return new Promise((resolve, reject) => {
 		return mongoClient.connect(url, (err, db) => {
-			return (err) ? reject(new error('Error al conectar con mongo')) : resolve(db);
+			return (err) ? reject(new Error('Error al conectar con mongo')) : resolve(db);
 		});
 	});
 };
@@ -24,11 +21,11 @@ function findeSome(db, dato) {
 }
 
 function dbInsert(db, dato) {
-    var dbo = db.db(dbName);
-    dbo.collection(collectionName).insertOne(dato, (err, res) => {
-        if (err) throw err;
-        console.log("documento insertado");
-    });
+	var dbo = db.db(dbName);
+	dbo.collection(collectionName).insertOne(dato, (err, res) => {
+		if (err) throw err;
+		console.log("documento insertado");
+	});
 
 }
 
@@ -44,14 +41,14 @@ function dbInsertMany(db, dato) {
 function gettingData(options) {
 	return new Promise((resolve, reject) => {
 		return request(options, (error, response, body) => {
-			return (error) ? reject(new error('problemas al consultar el api')) : resolve(JSON.parse(body));
+			return (error) ? reject(new Error('problemas al consultar el api')) : resolve(JSON.parse(body));
 		})
 	})
 }
 
 function requestOptions(start = 0, size = 100) {
 	let opciones = {
-		url: `https://www.ebi.ac.uk/proteins/api/proteins?offset=${start}&size=${size}&organism=Nicotiana%20tabacum`,
+		url: `https://www.ebi.ac.uk/proteins/api/proteins?offset=${start}&size=${size}&organism=Botryococcus%20braunii`,
 		headers: {
 			"Accept": "application/json"
 		}
@@ -60,8 +57,7 @@ function requestOptions(start = 0, size = 100) {
 }
 
 function procces(data) {
-	let lista = []
-
+	let lista = [];
 	data.forEach(element => {
 		let dataset = {};
 		for (const i in element) {
@@ -82,10 +78,11 @@ function procces(data) {
 						dataset.CadenaDNA = element['sequence']['sequence'];
 
 					} else if (key === "recommendedName") {
-						//console.log(element[i][key]);
 						dataset.Organismo = element[i][key]['fullName']['value'];
-						dataset.Funcion = element['comments'][0]['text'][0]['value'];
+						dataset.Funcion = element['comments'];
 						dataset.CadenaDNA = element['sequence']['sequence'];
+
+
 
 					}
 				}
@@ -97,27 +94,29 @@ function procces(data) {
 	});
 
 	return new Promise((resolve, reject) => {
-		return (lista.length > 0) ? resolve(lista) : reject(new error('Lista de proteinas vacia'))
+		return (lista.length > 0) ? resolve(lista) : reject(new Error('Lista de proteinas vacia'))
 	})
 }
 
 
-async function main(start = 0, size = 1) {
-	console.log('Temporizador corriendo ');
+async function main(start = 400, size = 1) {
 	try {
 
 		const data = await gettingData(requestOptions(start, size));
 		const registros = await procces(data);
-		console.log(registros);
+		const database = await dbConnection();
+		const execute = await dbInsertMany(database, registros);
+		database.close();
+		console.log(registros.length);
 		setTimeout(() => {
 			let tmpStart = start;
 			start = size + tmpStart;
 			console.log(start, size);
-			//main()
-		}, 10000);
+			main(start, size);
+		}, 2000);
 
 	} catch (error) {
-		console.log(error);
+		console.log("Mensaje de error ", error);
 	}
 }
 
