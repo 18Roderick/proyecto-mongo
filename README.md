@@ -1,5 +1,5 @@
 # proyecto-mongo
 ### Colaboradores:
-Roderick
-Maureth
+Roderick,
+Maureth,
 Aldair
